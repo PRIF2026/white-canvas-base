@@ -3,13 +3,13 @@ import type { Database } from "@/lib/supabase-types";
 
 function createSupabaseClient() {
   const supabaseUrl =
-    import.meta.env.VITE_SUPABASE_URL ??
-    (typeof process !== "undefined" ? process.env.SUPABASE_URL : undefined);
+    import.meta.env["VITE_SUPABASE_URL"] ??
+    (typeof process !== "undefined" ? process.env["SUPABASE_URL"] : undefined);
 
   const supabaseKey =
-    import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY ??
-    import.meta.env.VITE_SUPABASE_ANON_KEY ??
-    (typeof process !== "undefined" ? process.env.SUPABASE_PUBLISHABLE_KEY : undefined);
+    import.meta.env["VITE_SUPABASE_PUBLISHABLE_KEY"] ??
+    import.meta.env["VITE_SUPABASE_ANON_KEY"] ??
+    (typeof process !== "undefined" ? process.env["SUPABASE_PUBLISHABLE_KEY"] : undefined);
 
   if (!supabaseUrl || !supabaseKey) {
     console.warn(
