@@ -11,6 +11,9 @@ export const attachSupabaseAuth = createMiddleware().client(async ({ next }) => 
       sendContext: {
         authToken: session.access_token,
       },
+      headers: {
+        Authorization: `Bearer ${session.access_token}`,
+      },
     });
   }
 
